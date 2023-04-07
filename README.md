@@ -108,15 +108,6 @@ Thanks for their great works!
 If you find this repository is useful, please consider cite our work:
 
 ```
-@article{an20221st,
-  title={1st Place Solutions for RxR-Habitat Vision-and-Language Navigation Competition (CVPR 2022)},
-  author={An, Dong and Wang, Zun and Li, Yangguang and Wang, Yi and Hong, Yicong and Huang, Yan and Wang, Liang and Shao, Jing},
-  journal={arXiv preprint arXiv:2206.11610},
-  year={2022}
-}
-```
-
-```
 @article{an2023etpnav,
   title={ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments}, 
   author={An, Dong and Wang, Hanqing and Wang, Wenguan and Wang, Zun and Huang, Yan and He, Keji and Wang, Liang},

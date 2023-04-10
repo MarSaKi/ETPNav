@@ -1,6 +1,6 @@
 # ETPNav for VLN-CE
 
-Code of our paper "ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments" [[Paper]](https://arxiv.org/pdf/2304.03047)
+Code of our paper "ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments" [[Paper]](https://arxiv.org/pdf/2304.03047v2.pdf)
 
 🔥Winner of the [RxR-Habitat Challenge](https://embodied-ai.org/cvpr2022) in CVPR 2022. [[Challenge Report]](https://arxiv.org/abs/2206.11610) [[Challenge Certificate]](https://marsaki.github.io/assets/cert/rxr-habitat-cert.pdf)
 

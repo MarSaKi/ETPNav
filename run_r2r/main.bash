@@ -3,7 +3,7 @@ export MAGNUM_LOG=quiet
 
 flag1="--exp_name release_r2r
       --run-type train
-      --exp-config hamt_r2r/iter_train.yaml
+      --exp-config run_r2r/iter_train.yaml
       SIMULATOR_GPU_IDS [0,1]
       TORCH_GPU_IDS [0,1]
       GPU_NUMBERS 2
@@ -18,30 +18,30 @@ flag1="--exp_name release_r2r
       IL.is_requeue True
       IL.waypoint_aug  True
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
-      MODEL.pretrained_path pretrained/DUET/mlm.sap_habitat_depth/ckpts/model_step_82500.pt
+      MODEL.pretrained_path pretrained/ETP/mlm.sap_r2r/ckpts/model_step_82500.pt
       "
 
 flag2=" --exp_name release_r2r
       --run-type eval
-      --exp-config hamt_r2r/iter_train.yaml
+      --exp-config run_r2r/iter_train.yaml
       SIMULATOR_GPU_IDS [0,1]
       TORCH_GPU_IDS [0,1]
       GPU_NUMBERS 2
       NUM_ENVIRONMENTS 8
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
-      EVAL.CKPT_PATH_DIR data/logs/checkpoints/density0.50/ckpt.iter12000.pth
+      EVAL.CKPT_PATH_DIR data/logs/checkpoints/release_r2r/ckpt.iter12000.pth
       IL.back_algo control
       "
 
 flag3="--exp_name release_r2r
       --run-type inference
-      --exp-config hamt_r2r/iter_train.yaml
+      --exp-config run_r2r/iter_train.yaml
       SIMULATOR_GPU_IDS [0,1]
       TORCH_GPU_IDS [0,1]
       GPU_NUMBERS 2
       NUM_ENVIRONMENTS 8
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
-      INFERENCE.CKPT_PATH data/logs/checkpoints/density0.50/ckpt.iter12000.pth
+      INFERENCE.CKPT_PATH data/logs/checkpoints/release_r2r/ckpt.iter12000.pth
       INFERENCE.PREDICTIONS_FILE preds.json
       IL.back_algo control
       "

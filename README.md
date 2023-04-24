@@ -4,7 +4,7 @@ Code of our paper "ETPNav: Evolving Topological Planning for Vision-Language Nav
 
 🔥Winner of the [RxR-Habitat Challenge](https://embodied-ai.org/cvpr2022) in CVPR 2022. [[Challenge Report]](https://arxiv.org/abs/2206.11610) [[Challenge Certificate]](https://marsaki.github.io/assets/cert/rxr-habitat-cert.pdf)
 
-Vision-language navigation is a task that requires an agent to follow instructions to navigate in environments. It becomes increasingly crucial in the field of embodied AI, with potential applications in autonomous navigation, search and rescue, and human-robot interaction. In this paper, we propose to address a more practical yet challenging counterpart setting - vision-language navigation in continuous environments (VLN-CE). To develop a robust VLN-CE agent, we propose a new navigation framework, ETPNav, which focuses on two critical skills: 1) the capability to abstract environments and generate long-range navigation plans, and 2) the ability of obstacle-avoiding control in continuous environments. ETPNav performs online topological mapping of environments by self-organizing predicted waypoints along a traversed path, without prior environmental experience. It privileges the agent to break down the navigation procedure into high-level planning and low-level control. Concurrently, ETPNav utilizes a transformer-based cross-modal planner to generate navigation plans based on topological maps and instructions. The plan is then performed through an obstacle-avoiding controller that leverages a trial-and-error heuristic to prevent navigation from getting stuck in obstacles. Experimental results demonstrate the effectiveness of the proposed method. ETPNav yields more than **10%** and **20%** improvements over prior state-of-the-art on R2R-CE and RxR-CE datasets, respectively.
+This work tackles a practical yet challenging VLN setting - vision-language navigation in continuous environments (VLN-CE). To develop a robust VLN-CE agent, we propose a new navigation framework, ETPNav, which focuses on two critical skills: **1) the capability to abstract environments and generate long-range navigation plans, and 2) the ability of obstacle-avoiding control in continuous environments**. ETPNav performs online topological mapping of environments by self-organizing predicted waypoints along a traversed path, without prior environmental experience. It privileges the agent to break down the navigation procedure into high-level planning and low-level control. Concurrently, ETPNav utilizes a transformer-based cross-modal planner to generate navigation plans based on topological maps and instructions. The plan is then performed through an obstacle-avoiding controller that leverages a trial-and-error heuristic to prevent navigation from getting stuck in obstacles. Experimental results demonstrate the effectiveness of the proposed method. **ETPNav yields more than 10% and 20% improvements** over prior state-of-the-art on R2R-CE and RxR-CE datasets, respectively.
 
 <div align="center">
     <img src="assets/overview.png", width="1000">
@@ -17,12 +17,12 @@ Leadboard:
     <img src="assets/sota.png", width="1000">
 </div>
 
-## TODO's
+## TODOs
 
-* [ ] Tidy and release the R2R-CE fine-tuning code.
-* [ ] Tidy and release the RxR-CE fine-tuning code.
+* [X] Tidy and release the R2R-CE fine-tuning code.
+* [X] Tidy and release the RxR-CE fine-tuning code.
 * [ ] Release the pre-training code.
-* [ ] Release the checkpoints.
+* [X] Release the checkpoints.
 
 ## Setup
 
@@ -70,24 +70,49 @@ python download_mp.py --task habitat -o data/scene_datasets/mp3d/
 
 Extract such that it has the form `scene_datasets/mp3d/{scene}/{scene}.glb`. There should be 90 scenes. Place the `scene_datasets` folder in `data/`.
 
+### Data and Trained Weights
+
+* Waypoint Predictor: `data/wp_pred/check_cwp_bestdist*`
+
+  * For R2R-CE, `data/wp_pred/check_cwp_bestdist_hfov90` [[link]](https://drive.google.com/file/d/1goXbgLP2om9LsEQZ5XvB0UpGK4A5SGJC/view?usp=sharing).
+  * For RxR-CE, `data/wp_pred/check_cwp_bestdist_hfov63` [[link]](https://drive.google.com/file/d/1LxhXkise-H96yMMrTPIT6b2AGjSjqqg0/view?usp=sharing).
+* Processed data, pre-trained weight, fine-tuned weight [[link]](https://github.com/MarSaKi/ETPNav).
+
+  ```
+  unzip etp_ckpt.zip    # file/fold structure has been organized
+  ```
+
+  overall, files and folds are organized as follows:
+
+  ```
+  ETPNav
+  ├── data
+  │   ├── datasets
+  │   ├── logs
+  │   ├── scene_datasets
+  │   └── wp_pred
+  └── pretrained
+      └── ETP
+  ```
+
 ## Running
 
 Training and Evaluation
 
-Use `release_r2r.bash` and `release_rxr.bash` for `Training/Evaluation/Inference with a single GPU or with multiple GPUs on a single node. `Simply adjust the arguments of the bash scripts:
+Use `main.bash` for `Training/Evaluation/Inference with a single GPU or with multiple GPUs on a single node.` Simply adjust the arguments of the bash scripts:
 
 ```
 # for R2R-CE
-CUDA_VISIBLE_DEVICES=0,1 bash run/release_r2r.bash train 12345  # training
-CUDA_VISIBLE_DEVICES=0,1 bash run/release_r2r.bash eval 12345   # evaluation
-CUDA_VISIBLE_DEVICES=0,1 bash run/release_r2r.bash inter 12345  # inference
+CUDA_VISIBLE_DEVICES=0,1 bash run_r2r/main.bash train 2333  # training
+CUDA_VISIBLE_DEVICES=0,1 bash run_r2r/main.bash eval  2333  # evaluation
+CUDA_VISIBLE_DEVICES=0,1 bash run_r2r/main.bash inter 2333  # inference
 ```
 
 ```
 # for RxR-CE
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash run/release_rxr.bash train 12345  # training
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash run/release_rxr.bash eval 12345   # evaluation
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash run/release_rxr.bash inter 12345  # inference
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash run_rxr/main.bash train 2333  # training
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash run_rxr/main.bash eval  2333  # evaluation
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash run_rxr/main.bash inter 2333  # inference
 ```
 
 # Contact Information
@@ -105,13 +130,13 @@ Thanks for their great works!
 
 # Citation
 
-If you find this repository is useful, please consider cite our work:
+If you find this repository is useful, please consider citing our paper:
 
 ```
 @article{an2023etpnav,
-  title={ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments}, 
+  title={ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments},
   author={An, Dong and Wang, Hanqing and Wang, Wenguan and Wang, Zun and Huang, Yan and He, Keji and Wang, Liang},
-  journal={arXiv preprint arXiv:2304.03047}
-  year={2023},
+  journal={arXiv preprint arXiv:2304.03047},
+  year={2023}
 }
 ```

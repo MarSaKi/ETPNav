@@ -1,0 +1,82 @@
+BASE_TASK_CONFIG_PATH: hamt_rxr/rxr_vlnce.yaml
+SIMULATOR_GPU_IDS: [0]
+TORCH_GPU_ID: 0
+TORCH_GPU_IDS: [0]
+TRAINER_NAME: RL-HAMT
+GPU_NUMBERS: 1
+NUM_ENVIRONMENTS: 1
+TENSORBOARD_DIR: data/logs/tensorboard_dirs/
+CHECKPOINT_FOLDER: data/logs/checkpoints/
+EVAL_CKPT_PATH_DIR: data/logs/checkpoints/
+RESULTS_DIR: data/logs/eval_results/
+VIDEO_DIR: data/logs/video/
+
+INFERENCE:
+  SPLIT: test_challenge
+  LANGUAGES: ['*']
+  USE_CKPT_CONFIG: False
+  CKPT_PATH: ''  # REPLACE THIS
+  PREDICTIONS_FILE: ''
+  FORMAT: rxr
+  EPISODE_COUNT: -1
+
+EVAL:
+  USE_CKPT_CONFIG: False
+  SPLIT: val_unseen
+  # LANGUAGES: [en-US, en-IN]
+  LANGUAGES: ['*']
+  EPISODE_COUNT: -1
+  CKPT_PATH_DIR: ''
+  fast_eval: False
+
+# RL:
+#   POLICY:
+#     OBS_TRANSFORMS:
+#       ENABLED_TRANSFORMS: [ResizerPerSensor, CenterCropperPerSensor]
+
+IL:
+  iters: 15000
+  log_every: 200
+  lr: 1e-5
+  batch_size: 1 # equal to NUM_ENVIRONMENTS
+  ml_weight: 1.0
+  expert_policy: ndtw
+
+  sample_ratio: 0.75
+  decay_interval: 3000
+  
+  max_traj_len: 25
+  max_text_len: 200
+  loc_noise: 0.5
+  waypoint_aug: False
+  ghost_aug: 0.0
+  back_algo: teleport
+  # back_algo: control
+  tryout: True
+
+MODEL:
+  task_type: rxr
+
+  policy_name: PolicyViewSelectionHAMT
+  NUM_ANGLES: 12
+  pretrained_path: pretrained/DUET/mlm.sap_mT5_rxr/ckpts/model_step_90000.pt
+  fix_lang_embedding: True
+  fix_pano_embedding: False
+  use_depth_embedding: True
+  use_sprels: True
+  merge_ghost: True
+  consume_ghost: True
+  
+  spatial_output: False
+  RGB_ENCODER:
+    output_size: 512
+  DEPTH_ENCODER:
+    output_size: 256    
+  VISUAL_DIM:
+    vis_hidden: 768
+    directional: 128
+  INSTRUCTION_ENCODER:
+    bidirectional: True
+    sensor_uuid: rxr_instruction
+    embedding_size: 768
+

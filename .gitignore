@@ -1,0 +1,17 @@
+.ftpignore
+.ftpconfig
+.vscode
+
+# Byte-compiled / optimized / DLL files
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+*$py.class
+*.swp
+*.png
+*.zip
+
+/data
+/logs
+/pretrained
+/interact

@@ -58,7 +58,7 @@ from vlnce_baselines.common.ops import pad_tensors_wgrad, gen_seq_masks
 from torch.nn.utils.rnn import pad_sequence
 
 
-@baseline_registry.register_trainer(name="RL-HAMT")
+@baseline_registry.register_trainer(name="SS-ETP")
 class RLTrainer(BaseVLNCETrainer):
     def __init__(self, config=None):
         super().__init__(config)

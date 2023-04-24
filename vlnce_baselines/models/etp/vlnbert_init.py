@@ -13,7 +13,7 @@ def get_tokenizer(args):
 def get_vlnbert_models(config=None):
     
     from transformers import PretrainedConfig
-    from vlnce_baselines.models.hamt.vilmodel_cmt import GlocalTextPathNavCMT
+    from vlnce_baselines.models.etp.vilmodel_cmt import GlocalTextPathNavCMT
 
     model_class = GlocalTextPathNavCMT
 

@@ -13,7 +13,7 @@ from habitat_baselines.rl.models.rnn_state_encoder import (
 )
 from habitat_baselines.rl.ppo.policy import Net
 
-from vlnce_baselines.models.hamt.vlnbert_init import get_vlnbert_models
+from vlnce_baselines.models.etp.vlnbert_init import get_vlnbert_models
 from vlnce_baselines.common.aux_losses import AuxLosses
 from vlnce_baselines.models.encoders.instruction_encoder import (
     InstructionEncoder,
@@ -32,7 +32,7 @@ from vlnce_baselines.models.utils import (
 import math
 
 @baseline_registry.register_policy
-class PolicyViewSelectionHAMT(ILPolicy):
+class PolicyViewSelectionETP(ILPolicy):
     def __init__(
         self,
         observation_space: Space,
@@ -40,7 +40,7 @@ class PolicyViewSelectionHAMT(ILPolicy):
         model_config: Config,
     ):
         super().__init__(
-            HAMT(
+            ETP(
                 observation_space=observation_space,
                 model_config=model_config,
                 num_actions=action_space.n,
@@ -75,7 +75,7 @@ class Critic(nn.Module):
     def forward(self, state):
         return self.state2value(state).squeeze()
 
-class HAMT(Net):
+class ETP(Net):
     def __init__(
         self, observation_space: Space, model_config: Config, num_actions,
     ):
@@ -88,7 +88,7 @@ class HAMT(Net):
         )
         self.device = device
 
-        print('\nInitalizing the HAMT model ...')
+        print('\nInitalizing the ETP model ...')
         self.vln_bert = get_vlnbert_models(config=model_config)
         # if model_config.task_type == 'r2r':
         #     self.rgb_projection = nn.Linear(2048, 768)

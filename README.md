@@ -117,10 +117,10 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 bash run_rxr/main.bash inter 2333  # inference
 
 # Contact Information
 
-* dong.an@cripac.ia.ac.cn, [Dong An](https://marsaki.github.io/)
-* hanqingwang@bit.edu.cn, [Hanqing Wang](https://hanqingwangai.github.io/)
-* wenguanwang.ai@gmail.com, [Wenguan Wang](https://sites.google.com/view/wenguanwang)
-* yhuang@nlpr.ia.ac.cn, [Yan Huang](https://yanrockhuang.github.io/)
+* dong DOT an AT cripac DOT ia DOT ac DOT cn, [Dong An](https://marsaki.github.io/)
+* hanqingwang AT bit DOT edu DOT cn, [Hanqing Wang](https://hanqingwangai.github.io/)
+* wenguanwang DOT ai AT gmail DOT com, [Wenguan Wang](https://sites.google.com/view/wenguanwang)
+* yhuang AT nlpr DOT ia DOT ac DOT cn, [Yan Huang](https://yanrockhuang.github.io/)
 
 # Acknowledge
 

@@ -33,8 +33,7 @@ Follow the [Habitat Installation Guide](https://github.com/facebookresearch/habi
 1. Create a virtual environment. We develop this project with Python 3.6.
 
    ```bash
-   conda create -n etpnav python=3.6
-   conda activate etpnav
+   conda env create -f environment.yaml
    ```
 2. Install `habitat-sim` for a machine with multiple GPUs or without an attached display (i.e. a cluster):
 
@@ -75,7 +74,7 @@ Extract such that it has the form `scene_datasets/mp3d/{scene}/{scene}.glb`. The
 * Waypoint Predictor: `data/wp_pred/check_cwp_bestdist*`
 
   * For R2R-CE, `data/wp_pred/check_cwp_bestdist_hfov90` [[link]](https://drive.google.com/file/d/1goXbgLP2om9LsEQZ5XvB0UpGK4A5SGJC/view?usp=sharing).
-  * For RxR-CE, `data/wp_pred/check_cwp_bestdist_hfov63` [[link]](https://drive.google.com/file/d/1LxhXkise-H96yMMrTPIT6b2AGjSjqqg0/view?usp=sharing).
+  * For RxR-CE, `data/wp_pred/check_cwp_bestdist_hfov63 `[[link]](https://drive.google.com/file/d/1LxhXkise-H96yMMrTPIT6b2AGjSjqqg0/view?usp=sharing) `(modify the suffix to hfov63)`.
 * Processed data, pre-trained weight, fine-tuned weight [[link]](https://drive.google.com/file/d/1MWR_Cf4m9HEl_3z8a5VfZeyUWIUTfIYr/view?usp=share_link).
 
   ```

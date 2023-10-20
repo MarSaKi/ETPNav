@@ -421,7 +421,7 @@ class VLNCEDaggerEnv(habitat.RLEnv):
                         break
     
     def multi_step_control(self, path, tryout, vis_info):
-        for vp, vp_pos in path[::-1]:
+        for vp, vp_pos in path: #path[::-1]:
             self.single_step_control(vp_pos, tryout, vis_info)
 
     def get_plan_frame(self, vis_info):

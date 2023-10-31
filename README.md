@@ -1,6 +1,23 @@
-# ETPNav for VLN-CE
+<div align="center">
 
-Code of our paper "ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments" [[Paper]](https://arxiv.org/pdf/2304.03047v2.pdf)
+<h1>ETPNav: Evolving Topological Planning for <br /> Vision-Language Navigation in <br /> Continuous Environments</h1>
+
+<div>
+    <a href='https://marsaki.github.io/' target='_blank'>Dong An</a>;
+    <a href='https://hanqingwangai.github.io/' target='_blank'>Hanqing Wang</a>;
+    <a href='https://sites.google.com/view/wenguanwang'>Wenguan Wang</a>;
+    <a href='http://zunwang1.github.io/' target='_blank'>Zun Wang</a>;
+    <a href='https://yanrockhuang.github.io/' target='_blank'>Yan Huang</a>;
+    <a href='https://scholar.google.com/citations?user=RHPI-NQAAAAJ&hl=zh-CN' target='_blank'>Keji He</a>;
+    <a href='https://scholar.google.com/citations?user=8kzzUboAAAAJ&hl=zh-CN' target='_blank'>Liang Wang</a>;
+</div>
+
+<!-- <h3><strong>Accepted to <a href='https://iccv2023.thecvf.com/' target='_blank'>ICCV 2023</a></strong></h3> -->
+
+<h3 align="center">
+  <a href="https://arxiv.org/pdf/2212.04385.pdf" target='_blank'>Paper</a>
+</h3>
+</div>
 
 🔥Winner of the [RxR-Habitat Challenge](https://embodied-ai.org/cvpr2022) in CVPR 2022. [[Challenge Report]](https://arxiv.org/abs/2206.11610) [[Challenge Certificate]](https://marsaki.github.io/assets/cert/rxr-habitat-cert.pdf)
 
@@ -21,7 +38,7 @@ Leadboard:
 
 * [X] Tidy and release the R2R-CE fine-tuning code.
 * [X] Tidy and release the RxR-CE fine-tuning code.
-* [ ] Release the pre-training code.
+* [X] Release the pre-training code.
 * [X] Release the checkpoints.
 
 ## Setup
@@ -96,7 +113,15 @@ Extract such that it has the form `scene_datasets/mp3d/{scene}/{scene}.glb`. The
 
 ## Running
 
-Training and Evaluation
+Pre-training
+
+Download the pretraining datasets [[link]](https://www.dropbox.com/sh/u3lhng7t2gq36td/AABAIdFnJxhhCg2ItpAhMtUBa?dl=0) (the same one used in [DUET](https://github.com/cshizhe/VLN-DUET)) and precomputed features [[link]](https://drive.google.com/file/d/1D3Gd9jqRfF-NjlxDAQG_qwxTIakZlrWd/view?usp=sharing), unzip in folder `pretrain_src`
+
+```
+CUDA_VISIBLE_DEVICES=0,1 bash pretrain_src/run_pt/run_r2r.bash 2333
+```
+
+Finetuning and Evaluation
 
 Use `main.bash` for `Training/Evaluation/Inference with a single GPU or with multiple GPUs on a single node.` Simply adjust the arguments of the bash scripts:
 

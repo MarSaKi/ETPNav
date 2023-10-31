@@ -15,3 +15,5 @@ __pycache__/
 /logs
 /pretrained
 /interact
+/pretrain_src/datasets
+/pretrain_src/img_features

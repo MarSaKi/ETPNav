@@ -15,7 +15,7 @@
 <!-- <h3><strong>Accepted to <a href='https://iccv2023.thecvf.com/' target='_blank'>ICCV 2023</a></strong></h3> -->
 
 <h3 align="center">
-  <a href="https://arxiv.org/pdf/2212.04385.pdf" target='_blank'>Paper</a>
+  <a href="https://arxiv.org/abs/2304.03047v2" target='_blank'>Paper</a>
 </h3>
 </div>
 

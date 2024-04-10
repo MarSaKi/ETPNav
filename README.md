@@ -12,7 +12,7 @@
     <a href='https://scholar.google.com/citations?user=8kzzUboAAAAJ&hl=zh-CN' target='_blank'>Liang Wang</a>;
 </div>
 
-<!-- <h3><strong>Accepted to <a href='https://iccv2023.thecvf.com/' target='_blank'>ICCV 2023</a></strong></h3> -->
+<h3><strong>Accepted to <a href='https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34' target='_blank'>TPAMI 2024</a></strong></h3>
 
 <h3 align="center">
   <a href="https://arxiv.org/abs/2304.03047v2" target='_blank'>Paper</a>
@@ -157,10 +157,10 @@ Thanks for their great works!
 If you find this repository is useful, please consider citing our paper:
 
 ```
-@article{an2023etpnav,
+@article{an2024etpnav,
   title={ETPNav: Evolving Topological Planning for Vision-Language Navigation in Continuous Environments},
   author={An, Dong and Wang, Hanqing and Wang, Wenguan and Wang, Zun and Huang, Yan and He, Keji and Wang, Liang},
-  journal={arXiv preprint arXiv:2304.03047},
-  year={2023}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
 }
 ```

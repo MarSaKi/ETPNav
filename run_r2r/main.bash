@@ -18,7 +18,7 @@ flag1="--exp_name release_r2r
       IL.is_requeue True
       IL.waypoint_aug  True
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
-      MODEL.pretrained_path pretrained/ETP/mlm.sap_r2r/ckpts/model_step_82500.pt
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_r2r/ckpts/model_step_82500.pt
       "
 
 flag2=" --exp_name release_r2r

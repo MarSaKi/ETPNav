@@ -82,6 +82,27 @@ Follow the [Habitat Installation Guide](https://github.com/facebookresearch/habi
     conda install habitat-sim-0.1.7-py3.6_headless_linux_856d4b08c1a2632626bf0d205bf46471a99502b7.tar.bz2
     ```
 
+### Data and Trained Weights
+
+We now use ModelScope to host and maintain our [model weights](https://modelscope.cn/models/admagic/ETPNav/files). This allows for easier and faster downloads of checkpoints and related files. Commands:
+
+```
+pip install modelscope
+modelscope download --model admagic/ETPNav --local_dir ./data
+```
+
+The structure of the downloaded `data` folder is as follows:
+
+```
+data/
+├── connectivity_graphs.pkl
+├── datasets        # instruction datasets
+├── ddppo-models    # depth encoder weights
+├── logs            # finetuned weights
+├── pretrained      # pretrained weights
+└── wp_pred         # waypoints predictor weights
+```
+
 ### Scenes: Matterport3D
 
 Instructions copied from [VLN-CE](https://github.com/jacobkrantz/VLN-CE):
@@ -95,30 +116,7 @@ python download_mp.py --task habitat -o data/scene_datasets/mp3d/
 
 Extract such that it has the form `scene_datasets/mp3d/{scene}/{scene}.glb`. There should be 90 scenes. Place the `scene_datasets` folder in `data/`.
 
-### Data and Trained Weights
 
-* Waypoint Predictor: `data/wp_pred/check_cwp_bestdist*`
-
-  * For R2R-CE, `data/wp_pred/check_cwp_bestdist_hfov90` [[link]](https://drive.google.com/file/d/1goXbgLP2om9LsEQZ5XvB0UpGK4A5SGJC/view?usp=sharing).
-  * For RxR-CE, `data/wp_pred/check_cwp_bestdist_hfov63 `[[link]](https://drive.google.com/file/d/1LxhXkise-H96yMMrTPIT6b2AGjSjqqg0/view?usp=sharing) `(modify the suffix to hfov63)`.
-* Processed data, pre-trained weight, fine-tuned weight [[link]](https://drive.google.com/file/d/1MWR_Cf4m9HEl_3z8a5VfZeyUWIUTfIYr/view?usp=share_link).
-
-  ```
-  unzip etp_ckpt.zip    # file/fold structure has been organized
-  ```
-
-  overall, files and folds are organized as follows:
-
-  ```
-  ETPNav
-  ├── data
-  │   ├── datasets
-  │   ├── logs
-  │   ├── scene_datasets
-  │   └── wp_pred
-  └── pretrained
-      └── ETP
-  ```
 
 ## Running
 

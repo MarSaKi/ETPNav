@@ -18,7 +18,7 @@ flag1="--exp_name release_rxr
       IL.is_requeue True
       IL.waypoint_aug  True
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
-      MODEL.pretrained_path pretrained/ETP/mlm.sap_rxr/ckpts/model_step_90000.pt
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_rxr/ckpts/model_step_90000.pt
       IL.expert_policy ndtw
       "
 

@@ -181,6 +181,70 @@ _C.MODEL.PROGRESS_MONITOR.use = False
 _C.MODEL.PROGRESS_MONITOR.alpha = 1.0  # loss multiplier
 
 
+# -----------------------------------------------------------------------------
+# WORLD-MODEL CLOSED LOOP (trainer SS-ETP-WM, see docs/WM_DESIGN.md)
+# -----------------------------------------------------------------------------
+_C.WM = CN()
+_C.WM.backbone_ckpt = "data/logs/checkpoints/release_r2r/ckpt.iter12000.pth"
+_C.WM.freeze_backbone = True
+_C.WM.backbone_amp = True
+_C.WM.lr = 1e-4
+_C.WM.weight_decay = 0.01
+_C.WM.grad_clip = 5.0
+# model sizes
+_C.WM.latent_dim = 256
+_C.WM.deter_dim = 256
+_C.WM.stoch_dim = 32
+_C.WM.dropout = 0.1
+_C.WM.fusion_init = 0.3
+_C.WM.correction_gamma = 1.0
+# module switches (ablations A1-A5)
+_C.WM.use_forward = True
+_C.WM.use_inverse = True
+_C.WM.use_exec = True
+_C.WM.use_memory = True
+_C.WM.use_correction = True
+_C.WM.stop_veto = True
+_C.WM.fused_stop_scores = True
+# verification / correction thresholds
+_C.WM.tau_revise = 0.5
+_C.WM.tau_verify = 0.3
+_C.WM.tau_review = 0.4
+_C.WM.tau_veto = 0.7
+_C.WM.review_every = 4
+_C.WM.review_window = 3
+_C.WM.revision_budget = 3
+_C.WM.revision_cooldown = 1
+_C.WM.veto_budget = 1
+# corrective memory
+_C.WM.memory_size = 32
+_C.WM.merge_radius = 0.5
+_C.WM.min_reliability = 0.05
+_C.WM.write_threshold = 0.5
+_C.WM.quarantine_scale = 0.2
+_C.WM.rel_decay = 0.9
+# supervision
+_C.WM.free_nats = 1.0
+_C.WM.exec_threshold = 1.0
+_C.WM.dev_margin = 0.5
+_C.WM.dev_pos_weight = 2.0
+_C.WM.corr_dev_weight = 3.0
+_C.WM.perturb_prob = 0.1
+_C.WM.log_dev_metrics = True
+_C.WM.LOSS = CN()
+_C.WM.LOSS.nav = 1.0
+_C.WM.LOSS.fwd_value = 0.5
+_C.WM.LOSS.inv_goal = 0.5
+_C.WM.LOSS.inv_cycle = 0.2
+_C.WM.LOSS.inv_hind = 0.5
+_C.WM.LOSS.wm_kl = 0.1
+_C.WM.LOSS.wm_rec = 0.5
+_C.WM.LOSS.wm_pred = 1.0
+_C.WM.LOSS.exec = 0.2
+_C.WM.LOSS.dev = 1.0
+_C.WM.LOSS.corr = 0.5
+
+
 def purge_keys(config: CN, keys: List[str]) -> None:
     for k in keys:
         del config[k]

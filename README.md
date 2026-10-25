@@ -34,6 +34,10 @@ Leadboard:
     <img src="assets/sota.png", width="1000">
 </div>
 
+## World-Model Closed Loop (IEVC-Nav)
+
+This fork adds a plug-in closed loop on top of a frozen ETPNav: a forward world model imagines the next state for every map slot, an inverse world model infers the action that reaches the imagined target, and a memory agent verifies prediction vs. observation after execution and corrects the next target. Trainer `SS-ETP-WM`, scripts `run_r2r/main_wm.bash` / `run_rxr/main_wm.bash`. Design, file guide and validation status: [docs/WM_DESIGN.md](docs/WM_DESIGN.md).
+
 ## TODOs
 
 * [X] Tidy and release the R2R-CE fine-tuning code.
